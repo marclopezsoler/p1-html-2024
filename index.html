@@ -259,24 +259,32 @@
       </section>
     </main>
     <footer>
-      <section>
+      <section class="footer-parent">
         <img src="./assets/imgs/svg-logo-current.svg" />
-        <h3>
-          OBJECTS<br />
-          THAT INSPIRE.
-        </h3>
-        <section>
-          <a>Privacy Policy</a>
-          <a>Terms of Sale</a>
-          <a>Contact Us</a>
-        </section>
-        <section class="social-links">
-          <a>FIGMA</a>
-          <a>TWITTER</a>
-          <a>INSTAGRAM</a>
-          <a>YOUTUBE</a>
-        </section>
-        <a>A</a>
+        <div class="footer-content">
+          <div class="footer-content-child-1">
+            <h3>
+              OBJECTS<br />
+              THAT INSPIRE.
+            </h3>
+            <div>
+              <a>Privacy Policy</a>
+              <a>Terms of Sale</a>
+              <a>Contact Us</a>
+            </div>
+          </div>
+          <div class="footer-content-child-2">
+            <div class="social-links">
+              <a>FIGMA</a>
+              <a>TWITTER</a>
+              <a>INSTAGRAM</a>
+              <a>YOUTUBE</a>
+            </div>
+            <span class="arrow-up" id="arrow-up"
+              ><img src="./assets/imgs/arrow-up-icon.svg"
+            /></span>
+          </div>
+        </div>
       </section>
       <section></section>
     </footer>
@@ -310,5 +318,11 @@
       },
       false
     );
+
+    const arrowUp = document.getElementById('arrow-up');
+
+    arrowUp.addEventListener('click', () =>{
+      window.scrollTo(0, 0);
+    }, false);
   </script>
 </html>

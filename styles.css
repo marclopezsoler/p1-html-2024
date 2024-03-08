@@ -393,7 +393,7 @@ h1 > img {
   transition: 0.35s;
 }
 
-.grid-item img:hover{
+.grid-item img:hover {
   border: 2px solid black;
 }
 
@@ -435,21 +435,111 @@ h1 > img {
 
 footer {
   background-color: var(--secondary-color);
-  width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
+  width: 100vw;
 }
 
-footer > section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.footer-parent {
+  width: calc(100vw - 16rem);
+  padding: 4rem 8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 4rem;
 }
 
-footer > section > img {
-  grid-row: span 2;
+.footer-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
 }
 
-footer > section > .social-links {
-  grid-column: span 1.5;
+.footer-content-child-1{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-content-child-1 div{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.footer-content-child-1 h3{
+  font-weight: bold;
+  font-family: var(--text-font);
+  font-size: calc(1.6rem + 8px);
+  line-height: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content-child-1 a{
+  font-size: calc(0.4rem + 10px);
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-content-child-2{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-content-child-2 a {
+  font-family: var(--text-font);
+  font-weight: 400;
+  font-size: calc(1rem + 10px);
+  padding-right: 2rem;
+  cursor: pointer;
+}
+
+.footer-content-child-2 a:first-of-type::after{
+  content: "↗";
+}
+
+.arrow-up {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.arrow-up img {
+  width: 32px;
+  height: 32px;
+}
+
+.arrow-up:hover {
+  background-color: white;
+}
+
+@media (width < 800px){
+  .footer-parent{
+    flex-direction: column;
+  }
+
+  .arrow-up {
+    width: 80px;
+  }
+
+  .footer-content-child-1{
+    width: 100%;
+    justify-content: space-between;
+  }
+  
 }

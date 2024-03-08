@@ -8,4 +8,5 @@
   --titles-font: "Whyte Inktrap";
   --text-font: "Whyte";
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
