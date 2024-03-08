@@ -436,6 +436,7 @@ h1 > img {
 footer {
   background-color: var(--secondary-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100vw;
@@ -460,20 +461,19 @@ footer {
   gap: 4rem;
 }
 
-.footer-content-child-1{
+.footer-content-child-1 {
   width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.footer-content-child-1 div{
+.footer-content-child-1 div {
   display: flex;
   flex-direction: column;
-  
 }
 
-.footer-content-child-1 h3{
+.footer-content-child-1 h3 {
   font-weight: bold;
   font-family: var(--text-font);
   font-size: calc(1.6rem + 8px);
@@ -482,13 +482,23 @@ footer {
   padding: 0;
 }
 
-.footer-content-child-1 a{
+.footer-content-child-1 a {
   font-size: calc(0.4rem + 10px);
-  padding-bottom: 10px;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  margin-bottom: 10px;
   cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: 0.25s;
 }
 
-.footer-content-child-2{
+.footer-content-child-1 a:hover{
+  border-bottom: 1px solid black;
+}
+
+
+.footer-content-child-2 {
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -499,11 +509,18 @@ footer {
   font-family: var(--text-font);
   font-weight: 400;
   font-size: calc(1rem + 10px);
-  padding-right: 2rem;
+  margin-right: 2rem;
+  line-height: 0;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: 0.25s;
 }
 
-.footer-content-child-2 a:first-of-type::after{
+.footer-content-child-2 a:hover{
+  border-bottom: 2px solid black;
+}
+
+.footer-content-child-2 a:first-of-type::after {
   content: "↗";
 }
 
@@ -526,10 +543,11 @@ footer {
 
 .arrow-up:hover {
   background-color: white;
+  transform: rotateZ(-45deg);
 }
 
-@media (width < 800px){
-  .footer-parent{
+@media (width < 800px) {
+  .footer-parent {
     flex-direction: column;
   }
 
@@ -537,9 +555,39 @@ footer {
     width: 80px;
   }
 
-  .footer-content-child-1{
+  .footer-content-child-1 {
     width: 100%;
     justify-content: space-between;
   }
-  
+}
+
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.container {
+  width: 100%;
+  overflow-x: hidden;
+  font-family: var(--text-font);
+  font-weight: bold;
+  font-size: calc(1.2rem + 6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.horizontal-scrolling-items {
+  display: flex;
+  width: 2000px;
+  animation-name: infiniteScroll;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.horizontal-scrolling-items__item {
+  white-space: nowrap;
 }
