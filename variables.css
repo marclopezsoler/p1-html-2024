@@ -1,0 +1,11 @@
+@import "./font.css";
+
+:root {
+  --primary-color: #ffc700;
+  --secondary-color: #f24e1e;
+  --black: black;
+  --white: white;
+  --titles-font: "Whyte Inktrap";
+  --text-font: "Whyte";
+  overflow-x: hidden;
+}
