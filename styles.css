@@ -1,15 +1,277 @@
+@import "./font.css";
+
 :root {
   --primary-color: #ffc700;
   --secondary-color: #f24e1e;
+  --black: black;
+  --white: white;
+  --titles-font: "Whyte Inktrap";
+  --text-font: "Whyte";
+}
+
+* {
+  font-family: var(--text-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--titles-font);
 }
 
 body {
   margin: 0;
 }
 
+header {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  width: calc(100% - 1rem - 5vw);
+  font-family: var(--text-font);
+  font-style: normal;
+  padding: 1.5rem calc(0.5rem + 2.5vw);
+  height: 60px;
+}
+
+header * {
+  padding: 0;
+  margin: 0;
+  transition: 0.35s ease-in;
+}
+
+header section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: calc(4px + 1vw);
+  z-index: 2;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+li {
+  list-style-type: none;
+  border: 3px solid var(--black);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.btn-menu {
+  transition: 0.25s;
+}
+
+.btn-menu:hover {
+  background-color: var(--black);
+  color: white;
+}
+
+li:last-child {
+  min-width: 20px;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+/* li:last-child:hover {
+  background-color: var(--primary-color);
+} */
+
+header ul img {
+  height: 20px;
+  width: 20px;
+}
+
+header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header > img {
+  height: calc(10px + 1.4vw);
+  max-height: 1.4rem;
+  z-index: 2;
+}
+
+#search {
+  border: 0;
+}
+
+#search img {
+  width: 30px;
+  height: 30px;
+}
+
+#map {
+  width: 30px;
+  height: 30px;
+}
+
+#menu-select button,
+select {
+  height: fit-content;
+}
+
+select {
+  background-color: transparent;
+  border: 3px solid black;
+  border-radius: 50px;
+  height: 40px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-family: var(--text-font);
+  font-style: normal;
+}
+
+#cart {
+  height: 40px;
+  border: 3px solid var(--black);
+  border-radius: 50px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.show-menu {
+  transition: 0.35s ease-in;
+  transform: translateY(0px);
+}
+
+.hide-menu {
+  transition: 0.35s ease-in;
+  transform: translateY(-100px);
+}
+
+.bg-color-menu{
+  background-color: white;
+  transition: 0.25s;
+}
+
+.no-bg-color-menu{
+  background-color: transparent;
+  transition: 0.25s;
+}
+
+@media (width <= 950px) {
+  .btn-menu {
+    display: none;
+  }
+
+  #burg-menu {
+    display: flex;
+  }
+  #map {
+    display: block;
+  }
+  select {
+    display: none;
+  }
+
+  #cart {
+    display: flex;
+  }
+}
+
+@media (width > 950px) {
+  #cart::before {
+    content: "CART";
+    padding-right: 4px;
+  }
+
+  .btn-menu {
+    display: flex;
+  }
+
+  #burg-menu {
+    display: none;
+  }
+  #map {
+    display: none;
+  }
+  select {
+    display: block;
+  }
+}
+
 body {
   min-height: 100vh;
   max-width: 100vw;
+}
+
+#slider {
+  background-color: var(--primary-color);
+  height: 100vh;
+  border-bottom: 5px solid black;
+  transition: 0.25s;
+}
+
+@media (width < 1600px){
+  #slider{
+    max-height: 80vh;
+    height: 60vw;
+    min-height: 40vh;
+  }
+}
+
+#main-text {
+  width: calc(100% - 8rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8rem 4rem 0rem 4rem;
+}
+
+#main-text h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--titles-font);
+  font-size: calc(3vw + 10px);
+  max-width: 1400px;
+  gap: 1rem;
+  flex-wrap: wrap;
+  line-height: 2vw;
+}
+
+h1 > img {
+  width: calc(20px + 2vw);
+  height: calc(20px + 2vw);
+}
+
+#main-text p {
+  white-space: nowrap;
+  margin: 0;
+  transition: 0.25s;
+}
+
+#main-text a {
+  text-decoration: underline;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#main-text:hover p {
+  opacity: 0.5;
 }
 
 .grid {
@@ -27,10 +289,15 @@ body {
   justify-content: center;
 }
 
-.grid-item:nth-child(7) {
+.grid-item:nth-child(7),
+.grid-item:nth-child(8) {
   grid-row: span 2;
   max-height: 150px;
   grid-column: span 2;
+}
+
+.grid-item:nth-child(n + 9) {
+  transform: translateY(-4rem);
 }
 
 footer {

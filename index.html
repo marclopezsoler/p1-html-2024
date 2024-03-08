@@ -7,14 +7,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
+    <header id="header">
       <section>
-        <button>SHOP</button>
-        <button>ABOUT</button>
-        <button><img src="./assets/imgs/icon-search.static.svg" /></button>
+        <ul>
+          <li class="btn-menu">SHOP</li>
+          <li class="btn-menu">ABOUT</li>
+          <li id="burg-menu">
+            <img
+              id="burg-img"
+              src="./assets/imgs/menu_lines_hamburger_icon.svg"
+            />
+          </li>
+        </ul>
+        <button id="search">
+          <img src="./assets/imgs/icon-search.static.svg" />
+        </button>
       </section>
       <img src="./assets/imgs/logo-full.static.svg" />
-      <section>
+      <section id="menu-select">
         <select>
           <option>CANADA</option>
           <option>JAPAN</option>
@@ -23,12 +33,13 @@
           <option>EUROPEAN UNION</option>
           <option>I'M JUST BROWSING</option>
         </select>
-        <button>CART 0</button>
+        <img id="map" src="./assets/imgs/location-icon.svg" />
+        <button id="cart" class="btn-menu">0</button>
       </section>
     </header>
     <main>
       <section id="slider"></section>
-      <section>
+      <section id="main-text">
         <h1>
           <p>FIGMA'S</p>
           <img src="./assets/imgs/world-symbol/word-symbol-burst.static.svg" />
@@ -36,13 +47,15 @@
           <img
             src="./assets/imgs/world-symbol/word-symbol-hourglass.static.svg"
           />
-          <p>OF <a>LAYERS</a></p>
+          <p>OF</p>
+          <a>LAYERS</a>
           <img src="./assets/imgs/world-symbol/word-symbol-zag.static.svg" />
           <p>AND</p>
           <img src="./assets/imgs/world-symbol/word-symbol-dots.static.svg" />
-          <p><a>COMPONENTS</a></p>
+          <a>COMPONENTS</a>
           <img src="./assets/imgs/world-symbol/word-symbol-sun.static.svg" />
-          <p>FOR YOU</p>
+          <p>FOR</p>
+          <p>YOU</p>
           <img src="./assets/imgs/world-symbol/word-symbol-comet.static.svg" />
           <p>AND</p>
           <img src="./assets/imgs/world-symbol/word-symbol-snake.static.svg" />
@@ -105,4 +118,34 @@
       <section></section>
     </footer>
   </body>
+
+  <script>
+    const menu = document.getElementById("header");
+    let lastYPos = 0;
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        let pgY = window.pageYOffset;
+        if (pgY >= 100) {
+          if (pgY > lastYPos) {
+            menu.classList.add("hide-menu");
+            menu.classList.remove("show-menu");
+          } else {
+            menu.classList.remove("hide-menu");
+            menu.classList.add("show-menu");
+          }
+          lastYPos = pgY <= 0 ? 0 : pgY;
+        }
+        if (pgY > 1) {
+          menu.classList.add("bg-color-menu");
+          menu.classList.remove("no-bg-color-menu");
+        } else {
+          menu.classList.remove("bg-color-menu");
+          menu.classList.add("no-bg-color-menu");
+        }
+      },
+      false
+    );
+  </script>
 </html>
