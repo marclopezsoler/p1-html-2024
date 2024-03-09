@@ -973,5 +973,65 @@
       },
       false
     );
+
+    const overEl = [];
+
+    for (let i = 0; i < 9; i++) {
+      const img = document.createElement("img");
+      overEl.push(img);
+    }
+
+    for (let i = 0; i < 9; i++) {
+      overEl[i].src = `./assets/imgs/overlay-images/element-over-${i + 1}.svg`;
+    }
+
+    let timer = 0;
+    let intervalId;
+    let containerDiv;
+
+    window.addEventListener(
+      "load",
+      () => {
+        intervalId = setInterval(() => {
+          timer += 1;
+
+          if (timer > 10) {
+            const elDiv = document.createElement("div");
+            const randomX =
+              Math.random() * (window.innerWidth - 100) + window.scrollX;
+            const randomY =
+              Math.random() * (window.innerHeight - 100) + window.scrollY;
+            elDiv.style.position = "absolute";
+            elDiv.style.left = randomX + "px";
+            elDiv.style.top = randomY + "px";
+            elDiv.style.zIndex = 999999;
+
+            const randomIndex = Math.floor(Math.random() * 9);
+            const img = overEl[randomIndex].cloneNode(true);
+            elDiv.appendChild(img);
+
+            if (!containerDiv) {
+              containerDiv = document.createElement("div");
+              document.body.appendChild(containerDiv);
+            }
+            containerDiv.appendChild(elDiv);
+          }
+        }, 2000);
+
+        window.addEventListener(
+          "scroll",
+          () => {
+            timer = 0;
+
+            if (containerDiv) {
+              containerDiv.parentNode.removeChild(containerDiv);
+              containerDiv = null;
+            }
+          },
+          false
+        );
+      },
+      false
+    );
   </script>
 </html>
