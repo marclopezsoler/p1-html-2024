@@ -257,6 +257,75 @@ body {
   }
 }
 
+/*                */
+/* DONATION BADGE */
+/*                */
+
+.donation-badge-link {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  right: 0;
+  padding-right: 10vw;
+  transform: translateY(calc(-40px - 4vw));
+}
+
+.badge {
+  width: calc(80px + 8vw);
+  height: calc(80px + 8vw);
+}
+
+.animation--rotate {
+  animation: badge-rotate 10s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes badge-rotate {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.highfive {
+  transform-origin: right bottom;
+  transform: translate(15px, 15px);
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.donation-badge-link:hover .highfive {
+  transform: translate(0px, 0px);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hand {
+  transition: 0.25s ease;
+}
+
+.donation-badge-link:hover .hand {
+  transform: translate(-10px, 0px);
+}
+
+.sparks{
+  transform-origin: bottom ;
+  transform: scale(0.8);
+  opacity: 0;
+  transition: 0.5s ease;
+  transition-delay: 0.25s;
+  transition-property: all;
+}
+
+.donation-badge-link:hover .sparks{
+  transform: scale(1);
+  opacity: 1;
+}
+
 /*                 */
 /* TEXT WITH ICONS */
 /*                 */
