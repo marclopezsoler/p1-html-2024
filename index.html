@@ -50,7 +50,30 @@
       </section>
     </header>
     <main>
-      <section id="slider"></section>
+      <section class="wrapper">
+        <div class="carousel">
+          <img
+            src="./assets/imgs/hero/figma-store_homepage-hero_01_100.webp"
+            draggable="false"
+          >
+          <img
+            src="./assets/imgs/hero/figma-store_homepage-hero_02_100.webp"
+            draggable="false"
+          />
+          <img
+            src="./assets/imgs/hero/figma-store_homepage-hero_03_100.webp"
+            draggable="false"
+          />
+          <img
+            src="./assets/imgs/hero/figma-store_homepage-hero_04_100.webp"
+            draggable="false"
+          />
+          <img
+            src="./assets/imgs/hero/figma-store_homepage-hero_05_100.webp"
+            draggable="false"
+          />
+        </div>
+      </section>
       <section class="donation-badge-link">
         <a href="/">
           <svg
@@ -1006,6 +1029,9 @@
             elDiv.style.top = randomY + "px";
             elDiv.style.zIndex = 999999;
 
+            const randomRotation = Math.random() * 360;
+            elDiv.style.transform = `rotate(${randomRotation}deg)`;
+
             const randomIndex = Math.floor(Math.random() * 9);
             const img = overEl[randomIndex].cloneNode(true);
             elDiv.appendChild(img);
@@ -1033,5 +1059,72 @@
       },
       false
     );
+
+    const carousel = document.querySelector(".carousel"),
+      firstImg = carousel.querySelectorAll("img")[0];
+    let isDragStart = false,
+      isDragging = false,
+      prevPageX,
+      prevScrollLeft,
+      positionDiff;
+
+    const autoSlide = () => {
+      if (
+        carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) >
+        -1
+      ) {
+        carousel.scrollLeft = 0;
+        return;
+      } else if (carousel.scrollLeft <= 0) {
+        carousel.scrollLeft = carousel.scrollWidth;
+      }
+
+      positionDiff = Math.abs(positionDiff);
+      let firstImgWidth = firstImg.clientWidth + 14;
+      let valDifference = firstImgWidth - positionDiff;
+
+      if (carousel.scrollLeft > prevScrollLeft) {
+        return (carousel.scrollLeft +=
+          positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff);
+      }
+      carousel.scrollLeft -=
+        positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+
+      showHideIcons();
+    };
+
+    const dragStart = (e) => {
+      isDragStart = true;
+      prevPageX = e.pageX || e.touches[0].pageX;
+      prevScrollLeft = carousel.scrollLeft;
+    };
+
+    const dragging = (e) => {
+      if (!isDragStart) return;
+      e.preventDefault();
+      isDragging = true;
+      carousel.classList.add("dragging");
+      positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+      carousel.scrollLeft = prevScrollLeft - positionDiff;
+      showHideIcons();
+    };
+
+    const dragStop = () => {
+      isDragStart = false;
+      carousel.classList.remove("dragging");
+
+      if (!isDragging) return;
+      isDragging = false;
+      autoSlide();
+    };
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("touchstart", dragStart);
+
+    document.addEventListener("mousemove", dragging);
+    carousel.addEventListener("touchmove", dragging);
+
+    document.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("touchend", dragStop);
   </script>
 </html>
