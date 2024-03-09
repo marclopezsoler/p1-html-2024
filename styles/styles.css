@@ -17,6 +17,10 @@ h6 {
   font-family: var(--titles-font);
 }
 
+img{
+  pointer-events: none;
+}
+
 body {
   margin: 0;
 }
@@ -37,6 +41,7 @@ header {
   font-style: normal;
   padding: 1.5rem calc(0.5rem + 2.5vw);
   height: 60px;
+  z-index: 1;
 }
 
 header * {
@@ -238,63 +243,80 @@ body {
 .wrapper {
   background-color: var(--primary-color);
   height: 100vh;
-  border-bottom: 5px solid black;
+  border-bottom: 4px solid black;
   transition: 0.25s;
   display: flex;
   max-width: 100vw;
   position: relative;
+  align-items: flex-end;
 }
 
-.wrapper .carousel {
+.carousel {
   font-size: 0px;
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
   scroll-behavior: smooth;
+  height: 100%;
+  /* transform: scaleY(0.9); */
+  /* width: 100vw; */
+  padding: 0;
+  margin: 0;
 }
+
 .carousel.dragging {
   cursor: grab;
   scroll-behavior: auto;
 }
-.carousel.dragging img {
-  pointer-events: none;
-}
-.carousel img {
+
+.carousel svg {
   height: 85%;
+  width: auto;
   object-fit: cover;
   user-select: none;
-  margin-left: 14px;
+  margin-left: 1.5rem;
   width: auto;
   margin-top: 6%;
 }
-.carousel img:first-child {
-  margin-left: 0px;
+
+.pattern-image {
+  height: 100%;
+  width: 100%;
+  border-radius: 3px solid var(--black);
+}
+
+.svg-text{
+  background-color: var(--white);
+  color: var(--black);
 }
 
 @media screen and (max-width: 900px) {
-  .carousel img {
-    width: calc(100% / 2);
+  .carousel svg {
+    width: auto;
+    height: 80%;
+    margin-top: 12%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .carousel img {
-    width: 100%;
+  .carousel svg {
+    height: 80%;
+    width: auto;
+    margin-top: 18%;
   }
 }
 
 @media (width >= 2000px) {
-  #slider {
+  .wrapper {
     max-height: 80vh;
     height: 60vw;
     min-height: 40vh;
   }
 }
 @media (width < 1400px) {
-  #slider {
+  .wrapper {
     max-height: 80vh;
-    height: 60vw;
-    min-height: 40vh;
+    min-height: 60vh;
   }
 }
 
@@ -650,7 +672,7 @@ footer {
 
 .footer-content {
   display: flex;
-  width: 100%;
+  width: 90%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
