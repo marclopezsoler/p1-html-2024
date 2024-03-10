@@ -230,6 +230,18 @@ select:focus {
   }
 }
 
+@media (width < 600px) {
+  #search,
+  select,
+  #map {
+    display: none;
+  }
+
+  #home-btn img {
+    height: calc(12px + 1vw);
+  }
+}
+
 /*        */
 /* BODY   */
 /*        */
@@ -340,6 +352,7 @@ body {
   .wrapper {
     max-height: 47.5vh;
     min-height: 25vh;
+    border-bottom: 3px solid black;
   }
 }
 
@@ -930,4 +943,13 @@ footer {
 
 #arrow-up-svg {
   transition: 0.25s;
+}
+
+/*                       */
+/* EXTRA DIV WITH SHAPES */
+/*                       */
+
+.extra {
+  max-width: 100vw;
+  overflow-x: hidden;
 }

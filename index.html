@@ -17,7 +17,7 @@
     />
     <link rel="stylesheet" href="./styles/styles.css" />
 
-    <script src="analytics.js"></script>
+    <!-- <script src="analytics.js"></script> -->
   </head>
   <body>
     <header id="header">
@@ -1510,11 +1510,11 @@
     // TRIGGER FOOTER ANIMATION WHEN VIEW
 
     const footer = document.getElementById("footer");
-    const fEl1 = document.querySelector('.show-1');
-    const fEl2 = document.querySelector('.show-2');
-    const fEl3 = document.querySelector('.show-3');
-    const fEl4 = document.querySelector('.show-4');
-    const fEl5 = document.querySelector('.show-5');
+    const fEl1 = document.querySelector(".show-1");
+    const fEl2 = document.querySelector(".show-2");
+    const fEl3 = document.querySelector(".show-3");
+    const fEl4 = document.querySelector(".show-4");
+    const fEl5 = document.querySelector(".show-5");
 
     window.addEventListener(
       "scroll",
@@ -1547,12 +1547,10 @@
         intervalId = setInterval(() => {
           timer += 1;
 
-          if (timer > 2) {
+          if (timer > 20) {
             const elDiv = document.createElement("div");
-            const randomX =
-              Math.random() * (window.innerWidth - 100) + window.scrollX;
-            const randomY =
-              Math.random() * (window.innerHeight - 100) + window.scrollY;
+            const randomX = Math.random() * (window.innerWidth - 250);
+            const randomY = Math.random() * (window.innerHeight - 250);
             elDiv.style.position = "absolute";
             elDiv.style.left = randomX + "px";
             elDiv.style.top = randomY + "px";
@@ -1567,11 +1565,15 @@
 
             if (!containerDiv) {
               containerDiv = document.createElement("div");
+              containerDiv.classList.add = "extra";
               document.body.appendChild(containerDiv);
             }
             containerDiv.appendChild(elDiv);
-            containerDiv.style.userSelect = "none";
-            containerDiv.style.pointerEvents = "none";
+
+            elDiv.style.userSelect = "none";
+            elDiv.style.pointerEvents = "none";
+            elDiv.style.maxWidth = "100vw";
+            elDiv.style.overflowX = "hidden";
           }
         }, 2000);
 
