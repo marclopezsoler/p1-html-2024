@@ -17,10 +17,6 @@ h6 {
   font-family: var(--titles-font);
 }
 
-img{
-  pointer-events: none;
-}
-
 body {
   margin: 0;
 }
@@ -31,8 +27,9 @@ body {
 
 header {
   position: fixed;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* flex-direction: row; */
   align-items: center;
   justify-content: space-between;
   top: 0;
@@ -114,6 +111,12 @@ header > img {
   height: calc(10px + 1.4vw);
   max-height: 1.4rem;
   z-index: 2;
+}
+
+header > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #home-btn {
@@ -285,9 +288,25 @@ body {
   border-radius: 3px solid var(--black);
 }
 
-.svg-text{
-  background-color: var(--white);
-  color: var(--black);
+.svg-text {
+  opacity: 0;
+  transition: 0.25s;
+}
+
+.svg-cutout:hover .svg-text {
+  opacity: 1;
+}
+
+@keyframes text-hover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -652,7 +671,6 @@ h1 > img {
 /*        */
 
 footer {
-  background-color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -719,6 +737,7 @@ footer {
   width: 90%;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
@@ -739,28 +758,6 @@ footer {
 
 .footer-content-child-2 a:first-of-type::after {
   content: "↗";
-}
-
-.arrow-up {
-  width: 60px;
-  height: 60px;
-  background-color: black;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.25s;
-  cursor: pointer;
-}
-
-.arrow-up img {
-  width: 32px;
-  height: 32px;
-}
-
-.arrow-up:hover {
-  background-color: white;
-  transform: rotateZ(-45deg);
 }
 
 @media (width < 800px) {
@@ -832,4 +829,47 @@ footer {
 
 .horizontal-scrolling-items__item {
   white-space: nowrap;
+}
+
+.show {
+  animation: show-footer-element 0.5s ease-out forwards;
+  transform-origin: bottom;
+  opacity: 0;
+}
+
+.show-2 {
+  animation-delay: 0.25s;
+}
+.show-3 {
+  animation-delay: 0.5s;
+}
+.show-4 {
+  animation-delay: 0.75s;
+}
+.show-5 {
+  animation-delay: 1s;
+}
+
+@keyframes show-footer-element {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arrow-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+#arrow-up-svg {
+  transition: 0.25s;
 }
