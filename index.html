@@ -1389,7 +1389,6 @@
       () => {
         const footerNum = Math.floor(Math.random() * (7 - 1) + 1);
         footerLogo.src = `./assets/imgs/footer-logos/logo-footer-${footerNum}.svg`;
-        console.log(footerSection);
 
         const bgCol = Math.floor(Math.random() * (3 - 1) + 1);
 
@@ -1548,7 +1547,7 @@
         intervalId = setInterval(() => {
           timer += 1;
 
-          if (timer > 20) {
+          if (timer > 2) {
             const elDiv = document.createElement("div");
             const randomX =
               Math.random() * (window.innerWidth - 100) + window.scrollX;

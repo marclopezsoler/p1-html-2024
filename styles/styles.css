@@ -33,7 +33,7 @@ header {
   align-items: center;
   justify-content: space-between;
   top: 0;
-  width: calc(100% - 1rem - 5vw);
+  width: calc(100vw - 1rem - 5vw);
   font-family: var(--text-font);
   font-style: normal;
   padding: 1.5rem calc(0.5rem + 2.5vw);
@@ -319,7 +319,7 @@ body {
   .carousel svg {
     height: 80%;
     width: auto;
-    margin-top: 18%;
+    margin-top: 20%;
   }
 }
 
@@ -334,6 +334,12 @@ body {
   .wrapper {
     max-height: 80vh;
     min-height: 60vh;
+  }
+}
+@media (width < 700px) {
+  .wrapper {
+    max-height: 47.5vh;
+    min-height: 25vh;
   }
 }
 
@@ -451,6 +457,18 @@ h1 > img {
   opacity: 0.5;
 }
 
+@media (width <= 600px) {
+  #main-text {
+    padding: 4rem 2rem 1rem 2rem;
+    width: calc(100% - 4rem);
+  }
+
+  #main-text h1 {
+    gap: 0.5rem;
+    font-size: calc(3.4vw + 12px);
+  }
+}
+
 /*                   */
 /* WORK LOUDER IMAGE */
 /*                   */
@@ -515,6 +533,48 @@ h1 > img {
   object-fit: cover;
   padding: 0;
   margin: 0;
+}
+
+@media (width <= 600px) {
+  #work-louder {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #work-louder div {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 15rem;
+  }
+
+  #work-louder div * {
+    text-align: center;
+  }
+
+  #work-louder div h2 {
+    font-size: calc(5vw + 16px);
+    width: 80%;
+    line-height: calc(7vw);
+  }
+
+  #work-louder div h3 {
+    font-size: calc(4vw + 6px);
+    line-height: calc(5vw);
+    width: 75%;
+  }
+
+  #work-louder div button {
+    font-size: calc(3vw + 6px);
+    margin-top: 2rem;
+    padding: 0.6rem 3rem;
+  }
 }
 
 /*               */
