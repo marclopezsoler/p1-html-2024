@@ -13,6 +13,11 @@ El tema de la página es libre, pero he aquí algunas sugerencias:
 ## Entregable
 
 Para hacer esta práctica tienes que:
+
 - Hacer un fork de este repositorio.
-- Trabajar en tu *fork* haciendo commits regularmente (una práctica que aparece entera en un solo commit tendrá una nota muy baja o cero, hay que enseñar el proceso intermedio).
+- Trabajar en tu _fork_ haciendo commits regularmente (una práctica que aparece entera en un solo commit tendrá una nota muy baja o cero, hay que enseñar el proceso intermedio).
 - Al finalizar, descarga un ZIP y entrega en el Campus Online de UPC School (habrá una tarea para ello).
+
+## Demo
+
+Para visualizar la página desplegada, puedes hacer clic en el siguiente [enlace](https://figma.marclopez.xyz/).
